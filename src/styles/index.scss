@@ -1,0 +1,23 @@
+@import "bootstrap-grid.min.css";
+@import "transitions";
+
+html {
+  overflow: auto !important;
+}
+
+.v-application {
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+}
+
+.w-100 {
+  width: 100%
+}
+
+a {
+  font-size: 14px;
+  text-decoration: none;
+}

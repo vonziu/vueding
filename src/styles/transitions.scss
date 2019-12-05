@@ -1,0 +1,53 @@
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s ease;
+}
+
+.fade-enter, .fade-leave-to
+  /* .component-fade-leave-active below version 2.1.8 */
+{
+  opacity: 0;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+{
+  opacity: 0;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+{
+  opacity: 0;
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0
+  }
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1
+  }
+  to {
+    opacity: 0
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn
+}
+
+.fadeOut {
+  animation-name: fadeOut
+}
