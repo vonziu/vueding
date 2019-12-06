@@ -44,7 +44,6 @@ function isAuthorized(router: VueRouter): void {
         }
       });
   } catch (e) {
-    console.log('here');
     router.push({name: 'login'});
     localStorage.setItem('isLoggedIn', false.toString());
   }
