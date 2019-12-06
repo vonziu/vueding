@@ -11,7 +11,11 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    "indent": "off"
+    indent: 'off',
+    'class-methods-use-this': 'off',
+    'lines-between-class-members': 'off',
+    'object-curly-spacing': 'off',
+    'import/no-cycle': 'off',
   },
   parserOptions: {
     parser: '@typescript-eslint/parser',

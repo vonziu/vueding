@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import AuthPanel from '@/views/authPanel.vue';
-import LoginContainer from '@/views/login/loginContainer.vue';
+import LoggedView from '@/views/loggedView.vue';
 
 Vue.use(VueRouter);
 
@@ -14,34 +14,49 @@ const routes = [
       {
         path: '/login',
         name: 'login',
-        component: LoginContainer,
+        component: () => import(/* webpackChunkName: "register" */ '@/views/login/loginContainer.vue'),
+        meta: {
+          public: true,
+          onlyWhenLoggedOut: true,
+        },
       },
       {
         path: '/register',
         name: 'register',
         component: () => import(/* webpackChunkName: "register" */ '@/views/register/registerContainer.vue'),
-      },
-      {
-        path: '/activate-account/:token',
-        name: 'activateAccount',
-        component: () => import(/* webpackChunkName: "activateAccount" */ '@/views/activateAccount/activateAccountContainer.vue'),
+        meta: {
+          public: true,
+          onlyWhenLoggedOut: true,
+        },
       },
       {
         path: '/remind-password',
         name: 'remindPassword',
         component: () => import(/* webpackChunkName: "remindPassword" */ '@/views/remindPassword/remindPasswordContainer.vue'),
+        meta: {
+          public: true,
+          onlyWhenLoggedOut: true,
+        },
       },
       {
-        path: '/reset-password/:token',
+        path: '/reset-password',
         name: 'resetPassword',
         component: () => import(/* webpackChunkName: "resetPassword" */ '@/views/resetPassword/resetPasswordContainer.vue'),
+        meta: {
+          public: true,
+          onlyWhenLoggedOut: true,
+        },
       },
     ],
   },
   {
-    path: '/about',
-    name: 'about',
-    // component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    path: '/panel',
+    name: 'panel',
+    component: LoggedView,
+    meta: {
+      public: false,
+      onlyWhenLoggedOut: false,
+    },
   },
 ];
 
@@ -52,12 +67,26 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.path === '/') {
-    return next({
-      name: 'login',
-    });
+  const isPublic = to.matched.some(record => record.meta.public);
+  const onlyWhenLoggedOut = to.matched.some(record => record.meta.onlyWhenLoggedOut);
+  const loggedIn = localStorage.getItem('isLoggedIn') ? JSON.parse(localStorage.getItem('isLoggedIn') as string) : false;
+  if (to.fullPath === '/') {
+    if (loggedIn) {
+      return next({name: 'panel'});
+    }
+    if (!loggedIn) {
+      return next({name: 'login'});
+    }
+  }
+  if (!isPublic && !loggedIn) {
+    return next({name: 'login'});
+  }
+
+  if (loggedIn && onlyWhenLoggedOut) {
+    return next({name: 'panel'});
   }
   return next();
 });
+
 
 export default router;

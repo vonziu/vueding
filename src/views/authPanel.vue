@@ -1,6 +1,6 @@
 <template>
   <main class="auth">
-    <section class="auth__left-panel col-lg-6 col-xl-5">
+    <section class="auth__left-panel col-lg-5 col-xl-5">
       <article>
         <h1>Welcome to Vueding</h1>
         <p>Tired of calling your guest for invitation confirm ?

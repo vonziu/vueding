@@ -1,5 +1,6 @@
 @import "bootstrap-grid.min.css";
 @import "transitions";
+@import "notifications";
 
 html {
   overflow: auto !important;
@@ -20,4 +21,8 @@ body {
 a {
   font-size: 14px;
   text-decoration: none;
+}
+
+.v-text-field {
+  min-height: 82px!important;
 }
