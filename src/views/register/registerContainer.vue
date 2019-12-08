@@ -4,6 +4,11 @@
     <form v-if="!completed" @submit.prevent="onRegister">
       <h2 class="mb-3 mt-3">After register we will automatically sign you in</h2>
       <v-text-field
+        label="First name"
+        :error-messages="collectErrors($v.registerApi.name, 'first name')"
+        v-model="$v.registerApi.name.$model"
+        solo/>
+      <v-text-field
         label="Email"
         :error-messages="collectErrors($v.registerApi.mail, 'Email')"
         v-model="$v.registerApi.mail.$model"
@@ -62,7 +67,9 @@
     mixins: [validationMixin, registerValidation],
   })
   export default class RegisterContainer extends mixins(ValidationConverterMixin) {
-    registerApi: RegisterApi = {mail: null, password: null, repeatPassword: null};
+    registerApi: RegisterApi = {
+      mail: null, name: null, password: null, repeatPassword: null,
+    };
     showPassword: boolean = false;
     showRepeatPassword: boolean = false;
     completed: boolean = false;
@@ -71,8 +78,9 @@
       this.$v.$touch();
       if (!this.$v.$invalid) {
         try {
-          await AuthRepository.register(this.registerApi);
-          await this.$router.push({name: 'panel'});
+          this.$store.commit('setUser', await AuthRepository.register(this.registerApi));
+          localStorage.setItem('isLoggedIn', String(true));
+          await this.$router.push({name: 'events'});
         } catch (e) {
           NotificationService.error(e);
         }

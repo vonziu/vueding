@@ -47,9 +47,10 @@
       this.$v.$touch();
       if (!this.$v.$invalid) {
         try {
-          await AuthRepository.signIn(this.loginApi);
+          const {user} = await AuthRepository.signIn(this.loginApi);
           localStorage.setItem('isLoggedIn', true.toString());
-          await this.$router.push({name: 'panel'});
+          this.$store.commit('setUser', user);
+          await this.$router.push({name: 'events'});
         } catch (e) {
           NotificationService.error(e);
         }

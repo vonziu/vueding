@@ -5,12 +5,14 @@ import {
   sameAs,
 } from 'vuelidate/lib/validators';
 
-// eslint-disable-next-line import/prefer-default-export
 export const registerValidation = {
   validations: {
     registerApi: {
       mail: {
         email,
+        required,
+      },
+      name: {
         required,
       },
       password: {

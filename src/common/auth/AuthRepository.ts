@@ -2,13 +2,18 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import {VueRouter} from 'vue-router/types/router.d';
 import {RegisterApi} from '@/components/register/register.model';
-import {UserCredential} from '@/common/model/firebase.types';
+import {User, UserCredential} from '@/common/model/firebase.types';
 import {LoginApi} from '@/components/login/login.types';
+import store from '@/store';
 
-function register(api: RegisterApi): Promise<UserCredential> {
-  return firebase
+async function register(api: RegisterApi): Promise<User | null> {
+  const result = await firebase
     .auth()
     .createUserWithEmailAndPassword(api.mail as string, api.password as string);
+  if (result.user) {
+    await result.user.updateProfile({displayName: api.name as string});
+  }
+  return result.user;
 }
 
 function signIn(api: LoginApi): Promise<UserCredential> {
@@ -23,10 +28,16 @@ function remindPassword(mail: string): Promise<void> {
     .sendPasswordResetEmail(mail);
 }
 
-async function resetPassword(newPassword: string, code: string): Promise<void> {
+function resetPassword(newPassword: string, code: string): Promise<void> {
   return firebase
     .auth()
     .confirmPasswordReset(code, newPassword);
+}
+
+async function signOut(): Promise<void> {
+  return firebase
+    .auth()
+    .signOut();
 }
 
 function isAuthorized(router: VueRouter): void {
@@ -37,10 +48,10 @@ function isAuthorized(router: VueRouter): void {
         if (!localStorage.getItem('isLoggedIn')) return;
         if (user) {
           localStorage.setItem('isLoggedIn', true.toString());
+          store.commit('setUser', user);
         }
         if (!user && localStorage.getItem('isLoggedIn') && JSON.parse(localStorage.getItem('isLoggedIn') as string)) {
           localStorage.setItem('isLoggedIn', false.toString());
-          await router.push({name: 'login'});
         }
       });
   } catch (e) {
@@ -54,5 +65,6 @@ export default {
   resetPassword,
   isAuthorized,
   register,
+  signOut,
   signIn,
 };

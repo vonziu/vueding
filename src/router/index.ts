@@ -57,6 +57,15 @@ const routes = [
       public: false,
       onlyWhenLoggedOut: false,
     },
+    children: [{
+      path: 'events',
+      name: 'events',
+      component: () => import(/* webpackChunkName: "events" */ '@/views/events/eventsContainer.vue'),
+      meta: {
+        public: false,
+        onlyWhenLoggedOut: false,
+      },
+    }],
   },
 ];
 
@@ -72,7 +81,7 @@ router.beforeEach((to, from, next) => {
   const loggedIn = localStorage.getItem('isLoggedIn') ? JSON.parse(localStorage.getItem('isLoggedIn') as string) : false;
   if (to.fullPath === '/') {
     if (loggedIn) {
-      return next({name: 'panel'});
+      return next({name: 'events'});
     }
     if (!loggedIn) {
       return next({name: 'login'});
@@ -83,7 +92,7 @@ router.beforeEach((to, from, next) => {
   }
 
   if (loggedIn && onlyWhenLoggedOut) {
-    return next({name: 'panel'});
+    return next({name: 'events'});
   }
   return next();
 });

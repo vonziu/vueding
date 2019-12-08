@@ -1,5 +1,6 @@
 import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
+import {Component} from 'vue-property-decorator';
+import {email} from 'vuelidate/lib/validators';
 import translations from '@/common/utils/translations';
 
 
@@ -14,5 +15,23 @@ export default class ValidationConverterMixin extends Vue {
           .replace('${}', fieldName ? fieldName.toLowerCase() : ''));
     }
     return [];
+  }
+
+  isMailListValid(mailString: string, isDirty: boolean, field: string): string[] {
+    if (isDirty) {
+      if (!mailString) {
+        return [translations.required.replace('${}', field)];
+      }
+      if (!this.checkMail(mailString.split(','))) {
+        return [translations.required.replace('${}', field)];
+      }
+      return [];
+    }
+    return [];
+  }
+
+  checkMail(list: string[]): boolean {
+    // @ts-ignore
+    return list.filter(mail => !email(mail.trim())).length === 0;
   }
 }

@@ -12,6 +12,7 @@ html {
 
 body {
   height: 100vh;
+  min-height: 100vh;
 }
 
 .w-100 {
@@ -25,4 +26,11 @@ a {
 
 .v-text-field {
   min-height: 82px!important;
+}
+
+.hr {
+  max-height: 1px;
+  min-height: 1px;
+  background: lightgray;
+  margin: 0.5rem 0;
 }

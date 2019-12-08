@@ -18,7 +18,7 @@
     <OnComplete v-else to="/login">
       <template #info>
         <h2 class="mb-3">
-          Email with informations about password reset was send to your inbox
+          Email with informations about password reset was sent to your inbox
         </h2>
       </template>
     </OnComplete>

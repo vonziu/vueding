@@ -16,6 +16,8 @@ module.exports = {
     'lines-between-class-members': 'off',
     'object-curly-spacing': 'off',
     'import/no-cycle': 'off',
+    'import/prefer-default-export': 'off',
+    'max-len': 'off',
   },
   parserOptions: {
     parser: '@typescript-eslint/parser',
