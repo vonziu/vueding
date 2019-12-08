@@ -1,6 +1,10 @@
 # vueding
 ![Netlify Status](https://api.netlify.com/api/v1/badges/d9b6969a-dd78-45f4-9627-aa234727ff7d/deploy-status)
 
+# for security reasons firebase keys are not available in the repo. 
+# If you want to test on your own you need to create your own Firebase project
+
+
 ## Live website: https://vueding.com/
 ## Tech stack
 
@@ -8,8 +12,7 @@
 Vue.js
 Vuex
 Vue router
-Firebase as backend(for security reasons firebase keys are not available in the repo. 
-If you want to test on your own you need to create your own Firebase project).
+Firebase as backend.
 Vuelidate for validations
 ```
 ## Project setup
