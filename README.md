@@ -1,5 +1,5 @@
 # vueding
-[![Netlify Status](https://api.netlify.com/api/v1/badges/d9b6969a-dd78-45f4-9627-aa234727ff7d/deploy-status)]
+![Netlify Status](https://api.netlify.com/api/v1/badges/d9b6969a-dd78-45f4-9627-aa234727ff7d/deploy-status)
 
 ## Tech stack
 
