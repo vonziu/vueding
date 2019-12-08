@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import {User} from '@/common/model/firebase.types';
+import {User} from '@/common/types';
 import {sidebar} from './modules/sidebar.module';
 import {RootState} from '@/store/types';
 

@@ -1,6 +1,7 @@
 @import "bootstrap-grid.min.css";
 @import "transitions";
 @import "notifications";
+@import "helpers";
 
 html {
   overflow: auto !important;
@@ -15,26 +16,8 @@ body {
   min-height: 100vh;
 }
 
-.w-100 {
-  width: 100%
-}
-
-a {
-  font-size: 14px;
-  text-decoration: none;
-}
-
 .v-text-field {
   min-height: 82px!important;
 }
 
-.hr {
-  max-height: 1px;
-  min-height: 1px;
-  background: lightgray;
-  margin: 0.5rem 0;
-}
 
-.p-12 {
-  padding: 12px;
-}

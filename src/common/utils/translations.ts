@@ -9,4 +9,5 @@ export default {
   minValue: 'Field ${} must be greater than 0',
   decimal: 'Field ${} must be greater than 0',
   macAddress: 'Field ${} must be valid MAC address',
+  invalid: 'Field ${} is invalid',
 } as { [key: string]: string };

@@ -1,4 +1,4 @@
-import {User} from '@/common/model/firebase.types';
+import {User} from '@/common/types';
 
 export interface RootState {
   user: User | null;

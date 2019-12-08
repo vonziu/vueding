@@ -5,15 +5,16 @@ import router from './router';
 import store from './store';
 import vuetify from './plugins/vuetify';
 import './styles/index.scss';
-import '@/config/vuelidate';
-import '@/config/firebase';
-import AuthRepository from '@/common/auth/AuthRepository';
+import '@/plugins/vuelidate';
+import '@/plugins/firebase';
+import {authRepository} from '@/common/repository/auth.repository';
 import '@fortawesome/fontawesome-free/css/all.css';
-import '@/config/notifications';
+import '@/plugins/notifications';
+import constantsMixin from '@/common/mixins/constant.mixin';
 
+Vue.mixin(constantsMixin);
 Vue.config.productionTip = false;
-
-AuthRepository.isAuthorized(router);
+authRepository.isAuthorized(router);
 
 new Vue({
   router,

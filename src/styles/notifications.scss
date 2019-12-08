@@ -1,7 +1,4 @@
-$error: #e54c43;
-$warning: #feb648;
-$success: #67cd86;
-$info: #1c76a6;
+@import "variables";
 
 .awn-toast {
   font-family: 'Roboto', sans-serif;
@@ -27,20 +24,20 @@ $info: #1c76a6;
 }
 
 .awn-toast-success {
-  background: $success!important;
+  background: $awn-success!important;
 }
 
 .awn-toast-warning {
-  background: $warning!important;
+  background: $awn-warning!important;
 }
 
 .awn-toast-info {
-  background: $info!important;
+  background: $awn-info!important;
   color:black!important;
 }
 
 .awn-toast-alert {
-  background: $error!important;
+  background: $awn-error!important;
 }
 
 .fa, .awn-toast.awn-toast-success b {
