@@ -48,7 +48,6 @@
         this.$store.commit('setUser', null);
         await this.$router.push({name: 'login'});
       } catch (e) {
-        console.log(e);
         NotificationService.error(e);
       }
     }
