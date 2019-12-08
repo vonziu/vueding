@@ -13,8 +13,9 @@ If you want to test on your own you need to create your own Firebase project).
 Vuelidate for validations
 ```
 ## Project setup
+
+### ENV variables:
 ```
-env variables:
 VUE_APP_API_KEY
 VUE_APP_AUTH_DOMAIN
 VUE_APP_DB_URL
@@ -24,7 +25,7 @@ VUE_APP_MESSAGING_SENDER_ID
 VUE_APP_APP_ID
 ```
 
-### install dependencies
+### Install dependencies
 ```
 yarn install
 ```
