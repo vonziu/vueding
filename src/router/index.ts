@@ -7,6 +7,15 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    path: '/confirm/:eventId/:mail',
+    name: 'confirmInvitation',
+    component: () => import(/* webpackChunkName: "confirmInvitation" */ '@/views/confirm/confirmInvitation.vue'),
+    meta: {
+      public: true,
+      onlyWhenLoggedOut: false,
+    },
+  },
+  {
     path: '/',
     name: 'auth',
     component: AuthPanel,

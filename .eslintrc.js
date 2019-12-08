@@ -18,6 +18,7 @@ module.exports = {
     'import/no-cycle': 'off',
     'import/prefer-default-export': 'off',
     'max-len': 'off',
+    'no-param-reassign': 'off',
   },
   parserOptions: {
     parser: '@typescript-eslint/parser',
