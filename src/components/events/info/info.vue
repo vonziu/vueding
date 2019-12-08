@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="p-12">
     <EventCard :event="event" presentational>
       <template #details>
         <section class="mt-4 w-100">

@@ -1,5 +1,5 @@
 <template>
-  <form class="col-12" @submit.prevent="onCreate">
+  <form class="col-12 p-12" @submit.prevent="onCreate">
     <v-text-field
       dark
       label="Name"

@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section class="col-12 d-flex flex-wrap justify-content-between align-items-baseline">
+    <section class="col-12 d-flex flex-wrap justify-content-between align-items-baseline p-12">
       <h2>Events</h2>
       <v-btn large color="#2e2f33" dark @click="openSlider = true; openCreate = true">
         <v-icon size="18px" class="mr-2">fas fa-plus</v-icon>
@@ -40,7 +40,10 @@
           @close="handleCloseSlider"/>
       </template>
     </DetailsContainer>
-    <ConfirmModal @close="confirmModal= false" @confirmed="handleConfirmed" :is-open="openConfirm">
+    <ConfirmModal
+      @close="openConfirm= false"
+      @confirmed="handleConfirmed"
+      :is-open="openConfirm">
       <template #info>
         <h4 class="w-100">Are you sure ?</h4>
         <h4 class="w-100"> This operation cannot be reverted</h4>

@@ -6,6 +6,7 @@
      'col-md-6': !presentational,
      'col-sm-12': !presentational
     }"
+    class="p-12"
     :style="{padding: presentational ? 0 : null}">
     <section
       class="card"
