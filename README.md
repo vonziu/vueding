@@ -4,7 +4,6 @@
 
 ```
 Vue.js
-
 Vuex
 Vue router
 Firebase as backend
