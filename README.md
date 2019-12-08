@@ -2,12 +2,14 @@
 
 ## Tech stack
 
+```
 Vue.js
+
 Vuex
 Vue router
 Firebase as backend
 Vuelidate for validations
-
+```
 ## Project setup
 ```
 yarn install
