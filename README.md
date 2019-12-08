@@ -16,7 +16,8 @@ Vuelidate for validations
 ```
 ## Project setup
 
-### ENV variables:
+### Create .env file in project root
+## ENV variables:
 ```
 VUE_APP_API_KEY
 VUE_APP_AUTH_DOMAIN
