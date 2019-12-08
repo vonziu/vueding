@@ -1,6 +1,6 @@
 # vueding
 
-##Tech stack
+## Tech stack
 
 Vue.js
 Vuex
