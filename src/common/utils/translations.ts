@@ -10,4 +10,5 @@ export default {
   decimal: 'Field ${} must be greater than 0',
   macAddress: 'Field ${} must be valid MAC address',
   invalid: 'Field ${} is invalid',
+  maxMail: 'You cannot add more than 5 email addresses',
 } as { [key: string]: string };

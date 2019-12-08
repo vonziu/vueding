@@ -25,7 +25,9 @@ export default class ValidationConverterMixin extends Vue {
       if (!this.checkMail(mailString.split(','))) {
         return [translations.invalid.replace('${}', field)];
       }
-      return [];
+      if (!this.isLessThan(mailString.split(','), 6)) {
+        return [translations.maxMail];
+      }
     }
     return [];
   }
@@ -33,5 +35,9 @@ export default class ValidationConverterMixin extends Vue {
   checkMail(list: string[]): boolean {
     // @ts-ignore
     return list.filter(mail => !email(mail.trim())).length === 0;
+  }
+
+  isLessThan(list: string[], number: number): boolean {
+    return list.length < number;
   }
 }

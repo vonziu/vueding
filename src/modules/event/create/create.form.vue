@@ -49,7 +49,7 @@
       persistent-hint
       :color="$appConstants.COLOR_WHITE"
       :error-messages="isMailListValid(mailList, this.$v.$dirty, 'email list')"
-      hint="You can pass as much mail addresses as you want as long as they separated by comma.
+      hint="For presentational puproses you can add maximum 5 mail addresses separated by comma.
       If there is some duplicates, we will remove it for you"
       dark
       solo/>
@@ -116,7 +116,7 @@
         };
       }
       const mailList = mailString.split(',');
-      const isValid = this.checkMail(mailList);
+      const isValid = this.checkMail(mailList) && this.isLessThan(mailList, 6);
       return {
         isValid,
         list: isValid ? this.removeDupes(this.trim(mailList)) : [],
