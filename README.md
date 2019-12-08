@@ -8,13 +8,13 @@
 Vue.js
 Vuex
 Vue router
-Firebase as backend(for security reasons firebase keys are not available in the repo. If you want to test on your own you need to create your own Firebase project).
+Firebase as backend(for security reasons firebase keys are not available in the repo. 
+If you want to test on your own you need to create your own Firebase project).
 Vuelidate for validations
 ```
 ## Project setup
 ```
 env variables:
-```
 VUE_APP_API_KEY
 VUE_APP_AUTH_DOMAIN
 VUE_APP_DB_URL
